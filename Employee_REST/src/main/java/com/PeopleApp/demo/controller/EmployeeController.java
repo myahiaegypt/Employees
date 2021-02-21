@@ -32,6 +32,12 @@ public class EmployeeController {
 	{
 		this.producer=producer;
 	}
+
+	@PutMapping(path="/ChangeINCHECK/{name}", consumes= {"application/json"})
+	public void writeModifyByNameToTopic(@PathVariable("name") String name)
+	{
+		this.producer.writeModifyByNameMessage(name);
+	}
 	
 	@PutMapping(path="/ChangeINCHECK", consumes= {"application/json"})
 	public void writeModifyToTopic(@RequestBody String message)

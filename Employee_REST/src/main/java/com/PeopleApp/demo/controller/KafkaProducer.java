@@ -9,6 +9,7 @@ import com.PeopleApp.demo.model.Employee;
 public class KafkaProducer {
 	private static final String TOPIC="AddEmployee";
 	private static final String MODIFYTOPIC="ModifyEmployee";
+	private static final String MODIFYBYNAMETOPIC="ModifyByNameEmployee";
 	@Autowired
 	private KafkaTemplate<String,String> kafkaTemplate;
 	
@@ -21,5 +22,10 @@ public class KafkaProducer {
 	{
 		this.kafkaTemplate.send(MODIFYTOPIC, msg);
 	}
+	
+	public void writeModifyByNameMessage(String msg) 
+	{
+		this.kafkaTemplate.send(MODIFYBYNAMETOPIC, msg);
+	}	
 	
 }
